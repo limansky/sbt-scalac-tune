@@ -1,6 +1,6 @@
 package me.limansky.sbtscalactune
 
-import sbt.librarymanagement.CrossVersion
+import sbt.CrossVersion
 
 final class CompilerOption(val variants: Seq[OptionVariant])
 
