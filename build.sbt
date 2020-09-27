@@ -4,6 +4,10 @@ lazy val sbtScalacTune = (project in file("."))
     name := "sbt-scalac-tune",
     crossSbtVersions := List("0.13.18", "1.3.13"),
     scalacOptions := Seq("-deprecation", "-unchecked", "-Xlint", "-feature"),
+    scriptedLaunchOpts := { scriptedLaunchOpts.value ++
+      Seq("-Xmx1024M", "-Dplugin.version=" + version.value)
+    },
+    scriptedBufferLog := false,
     buildSettings
   )
 
