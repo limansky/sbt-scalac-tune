@@ -17,9 +17,9 @@ final case class OptionSet(options: Seq[CompilerOption], fatalWarnings: Boolean)
 
   def optionsFor(scalaVersion: String): Seq[String] = {
     CrossVersion.partialVersion(scalaVersion) match {
-      case Some((_, min)) =>
+      case Some((_, minor)) =>
         val opts = options
-          .flatMap(op => op.variants.find(v => v.since.forall(_ >= min) && v.until.forall(_ < min)))
+          .flatMap(op => op.variants.find(v => v.since.forall(_ <= minor) && v.until.forall(minor < _)))
           .map(_.variant)
 
         if (fatalWarnings) "-Xfatal-warnings" +: opts else opts
