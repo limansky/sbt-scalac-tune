@@ -2,7 +2,7 @@ lazy val sbtScalacTune = (project in file("."))
   .enablePlugins(SbtPlugin)
   .settings(
     name := "sbt-scalac-tune",
-    crossSbtVersions := List("0.13.18", "1.3.13"),
+    crossSbtVersions := List("0.13.18", "1.2.8"),
     scalacOptions := Seq("-deprecation", "-unchecked", "-Xlint", "-feature"),
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "3.2.2" % Test
